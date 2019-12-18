@@ -1,26 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Login from "./Login";
+import Profile from "./Profile";
+import Register from "./Register";
+import GuestRoute from "./components/GuestRoute";
+import AuthRoute from "./components/AuthRoute";
+import Layout from "./components/Layout";
+import './css/tailwind.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <Layout>
+                  <div className="bg-gray-300 h-screen">
+                      <GuestRoute path="/login" component={Login} />
+                      <GuestRoute path="/register" component={Register} />
+                      <AuthRoute path="/profile" component={Profile} />
+                  </div>
+                </Layout>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
