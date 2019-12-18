@@ -26,7 +26,7 @@ class Register extends React.Component {
 			password_confirmation: this.state.password_confirmation
 		};
 
-		axios.post('http://dev.pingpongapi.com/api/auth/register', data)
+		axios.post(process.env.REACT_APP_API_URL + '/auth/register', data)
 			.then(res => {
 				cookie.set('token', res.data.access_token);
 				this.props.setLogin(res.data.user);

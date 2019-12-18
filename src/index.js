@@ -8,7 +8,7 @@ import axios from 'axios';
 import cookie from 'js-cookie';
 import jwt from 'jsonwebtoken';
 
-const jwt_secret = 'cWxCMyl1tvwUh31GZW5s4eImJ94cZImxZ0WuPUoW44vIr5Pjjq9EI9SBSfV6nSUS';
+const jwt_secret = process.env.REACT_APP_JWT_SECRET;
 let token = cookie.get('token');
 
 if(token){
@@ -17,7 +17,7 @@ if(token){
 			token = null;
 			cookie.remove('token');
 		}else{
-			if(decoded.iss !== 'http://dev.pingpongapi.com/api/auth/login'){
+			if(decoded.iss !== process.env.REACT_APP_API_URL + '/auth/login'){
 				token = null;
 				cookie.remove('token');
 			}
@@ -36,7 +36,7 @@ const render = () => {
 
 if(token){
 	axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-	axios.post('http://dev.pingpongapi.com/api/auth/me')
+	axios.post(process.env.REACT_APP_API_URL + '/auth/me')
 		.then(res => {
 			store.dispatch({type: "SET_LOGIN", payload: res.data})
 			render();

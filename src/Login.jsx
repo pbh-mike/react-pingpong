@@ -19,7 +19,7 @@ class Login extends Component {
 		};
 
 		axios
-			.post('http://dev.pingpongapi.com/api/auth/login', data)
+			.post(process.env.REACT_APP_API_URL + '/auth/login', data)
 			.then(res => {
 				cookie.set('token', res.data.access_token);
 				this.props.setLogin(res.data.user);

@@ -19,7 +19,7 @@ class Profile extends Component {
 		};
 
 		axios
-			.patch('http://dev.pingpongapi.com/api/auth/update', data)
+			.patch(process.env.REACT_APP_API_URL + '/auth/update', data)
 			.then(res => {
 				console.log(res.data);
 			})
