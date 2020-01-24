@@ -1,0 +1,110 @@
+// Customize Beard's defaults
+$brand-color-1: #1f69a9;
+$brand-color-2: #ec9524;
+$brand-color-3: #718392;
+
+// Import Beard's settings and tools
+@import '../../node_modules/beardcss/stylesheets/beard.before';
+
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Open+Sans:400,700&display=swap');
+
+$color-primary: #456;
+$color-secondary: #ec9524;
+
+@import 'base/_index',
+		'components/_index';
+
+.container {
+	max-width: 1000px;
+	margin: 0px auto;
+	padding: 0px 16px;
+}
+
+.container--full {
+	margin: 0px auto;
+	padding: 0px 16px;
+}
+
+.main-nav {
+	a {
+		font-size: 16px;
+		color: #fff;
+		display: inline-block;
+		margin-left: 10px;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.form-panel {
+	border-radius: 5px;
+	width: 800px;
+	margin: 0px auto;
+	display: flex;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.27);
+    border: solid 1px #c1c1c1;
+	form {
+		padding: 16px;
+		width: 50%;
+		border-radius: 5px 0px 0px 5px;
+		border-right: none;
+	}
+	&__img {
+		background: $color-primary;
+		width: 50%;
+		border-radius: 0px 5px 5px 0px;
+		img {
+			height: 272px;
+			width: 100%;
+			object-fit: cover;
+			border-radius: 0px 5px 5px 0px;
+		}
+	}
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.section-side-nav {
+	width: 165px;
+	background: #333333;
+	position: fixed;
+	height: 100%;
+	top: 82px;
+	padding: 16px;
+	li {
+		margin: 10px 0px;
+	}
+	a {
+		font-size: 16px;
+		color: #fff;
+		display: inline-block;
+	}
+}
+
+.section-main {
+	margin-left: 165px;
+	padding: 0px 32px;
+}
+
+.loading {
+	position: relative;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background-image: url('../img/loading.gif');
+		background-repeat: no-repeat;
+		background-size: 32px;
+		background-position: center;
+		background-color: rgba(255,255,255,0.65);
+	}
+}
+
+// Beard's helpers are generated here
+@import '../../node_modules/beardcss/stylesheets/beard.after';

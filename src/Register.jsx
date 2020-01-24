@@ -49,13 +49,12 @@ class Register extends React.Component {
 
 	render(){
 		return(
-			<div className="page-login flex">
-	            <div className="w-1/3"></div>
-	            <div className="w-1/3 mt-10 p-4 bg-white">
-	            	<form className="border border-gray-500" onSubmit={this.handleForm}>
+			<div>
+	            <div className="form-panel">
+	            	<form className="form" onSubmit={this.handleForm}>
 	            		<Error error={this.state.errors['result'] ? this.state.errors['result'] : null} />
 	            		<div className="p-4">
-	            			<h1 className="text-lg border-b border-gray-500">Register</h1>
+	            			<h1 className="hdln_1">Register</h1>
 	            			<div className="mt-4">
 	            				<label>Name</label>
 	            				<input type="text" 
@@ -100,8 +99,8 @@ class Register extends React.Component {
 	            			</div>
 	            		</div>
 	            	</form>
+	            	<div className="form-panel__img bg3" style={{ background: "url('login.jpg')", backgroundPosition: 'center' }}></div>
 	            </div>
-	            <div className="w-1/3"></div>
 	        </div>
 		);
 	}

@@ -13,28 +13,42 @@ function Layout(props){
 
 	return (
 		<div>
-			<nav className="flex justify-between">
-				<h1 className="py-4 mx-10">PingPong</h1>
-				<div className="flex justify-end">
-					{
-						!props.loggedIn ? (
-							<Fragment>
-								<Link className="m-3 py-1 px-2 bg-purple-700 text-white rounded inline-block" to="/login">
-									Login
-								</Link>
-								<Link className="m-3 py-1 px-2 bg-purple-700 text-white rounded inline-block" to="/register">
-									Register
-								</Link>
-							</Fragment> 
-						) : (
-							<Link className="m-3 py-1 px-2 bg-purple-700 text-white rounded inline-block" 
-								  to="/logout"
-								  onClick={handleLogout}>
-								Logout
-							</Link>
-						)
-					}
-					
+			<nav className={ !props.loggedIn ? 'main-nav mb4 bg1' : 'main-nav main-nav--loggedin mb4 bg1' }>
+				<div className="container--full">
+					<div className="frame pv2">
+						<div className="blk">
+							<h1 className="hdln_1 tcw mb0">PingPong</h1>
+						</div>
+						<div className="blk">
+							<div className="tar">
+								{
+									!props.loggedIn ? (
+										<Fragment>
+											<Link to="/login">
+												Login
+											</Link>
+											<Link to="/register">
+												Register
+											</Link>
+										</Fragment> 
+									) : (
+										<Fragment>
+											<Link to="/dashboard">
+												Dashboard
+											</Link>
+											<Link to="/profile">
+												Profile
+											</Link>
+											<Link to="/logout"
+												  onClick={handleLogout}>
+												Logout
+											</Link>
+										</Fragment>
+									)
+								}
+							</div>
+						</div>
+					</div>
 				</div>
 			</nav>
 			{props.children}

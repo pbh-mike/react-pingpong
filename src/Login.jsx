@@ -4,6 +4,9 @@ import cookie from 'js-cookie';
 import {connect} from 'react-redux';
 import Error from './components/Error';
 
+import { Query, Mutation } from "react-apollo";
+import gql from "graphql-tag";
+
 class Login extends Component {
 
 	constructor(props) {
@@ -42,42 +45,41 @@ class Login extends Component {
 
 	render(){
 		return (
-	        <div className="page-login flex">
-	            <div className="w-1/3"></div>
-	            <div className="w-1/3 mt-10 p-4 bg-white">
-	            	<form className="border border-gray-500" onSubmit={this.handleForm}>
-	            		<div className="p-4">
-	            			<h1 className="text-lg border-b border-gray-500">Ping Here</h1>
-	            			<Error error={this.state.errors['result'] ? this.state.errors['result'] : null} />
-	            			<div className="mt-4">
-	            				<label>Email</label>
-	            				<input type="email" 
-	            						name="email" 
-	            						placeholder="Email..." 
-	            						className="mt-1 p-2 bg-gray-200 rounded border border-gray-400 w-full"
-	            						onChange={this.handleInput} />
-	            				<Error error={this.state.errors['email'] ? this.state.errors['email'] : null} />
-	            			</div>
-	            			<div className="mt-4">
-	            				<label>Password</label>
-	            				<input type="password" 
-	            						name="password" 
-	            						placeholder="Password..." 
-	            						className="mt-1 p-2 bg-gray-200 rounded border border-gray-400 w-full"
-	            						onChange={this.handleInput} />
-	            				<Error error={this.state.errors['password'] ? this.state.errors['password'] : null} />
-	            			</div>
-	            			<div className="mt-4">
-	            				<input type="submit" 
-	            						name="password" 
-	            						placeholder="Password..." 
-	            						className="mt-1 p-2 border border-gray-400 rounded cursor-pointer bg-purple-600 text-white" />
-	            			</div>
-	            		</div>
-	            	</form>
-	            </div>
-	            <div className="w-1/3"></div>
-	        </div>
+			<div>
+			    <div className="form-panel mb2">
+			    	<form className="form" onSubmit={this.handleForm}>
+			    		<div className="p-4">
+			    			<h1 className="hdln_1">Login</h1>
+			    			<div className="mt-4">
+			    				<label>Email</label>
+			    				<input type="email" 
+			    						name="email" 
+			    						placeholder="Email..." 
+			    						className="mt-1 p-2 bg-gray-200 rounded border border-gray-400 w-full"
+			    						onChange={this.handleInput} />
+			    				<Error error={this.state.errors['email'] ? this.state.errors['email'] : null} />
+			    			</div>
+			    			<div className="mt-4">
+			    				<label>Password</label>
+			    				<input type="password" 
+			    						name="password" 
+			    						placeholder="Password..." 
+			    						className="mt-1 p-2 bg-gray-200 rounded border border-gray-400 w-full"
+			    						onChange={this.handleInput} />
+			    				<Error error={this.state.errors['password'] ? this.state.errors['password'] : null} />
+			    			</div>
+			    			<div className="mt-4">
+			    				<input type="submit" 
+			    						name="password" 
+			    						placeholder="Password..." 
+			    						className="mb0 mt1 pointer :bg2" />
+			    			</div>
+			    		</div>
+			    	</form>
+			    	<div className="form-panel__img bg3" style={{ background: "url('login.jpg')", backgroundPosition: 'center' }}></div>
+			    </div>
+			    <Error error={this.state.errors['result'] ? this.state.errors['result'] : null} />
+			</div>
 	    );	
 	}
     

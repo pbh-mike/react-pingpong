@@ -1,0 +1,27 @@
+
+/* form */
+
+.form {
+	label {
+		display: block;
+		font-size: 14px;
+		margin-bottom: 4px;
+	}
+	input {
+		margin-bottom: 8px;
+		border: none;
+		border-radius: 3px;
+		font-size: 14px;
+		width: 100%;
+		padding: 10px;
+	    border: solid 1px #c1c1c1;
+	}
+	button, input[type="submit"], .btn {
+		background: $color-secondary;
+		color: #fff;
+		cursor: pointer;
+		&:hover {
+			background: lighten($color-secondary, 10%);
+		}
+	}
+}

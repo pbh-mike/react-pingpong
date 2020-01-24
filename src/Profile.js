@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import Error from './components/Error';
+import SideNav from './components/SideNav';
 
 class Profile extends Component {
 
@@ -41,17 +42,11 @@ class Profile extends Component {
 	render(){
 		return (
 			<div className="flex w-full">
-				<aside className="w-1/6 bg-black h-screen">
-					<ul className="text-white p-4">
-						<Link to="profile">
-							<li className="bg-gray-900 rounded py-2 px-3">Profile</li>
-						</Link>
-					</ul>
-				</aside>
-				<section className="w-5/6 m-2 bg-white flex justify-center">
-					<form className="border border-gray-500 w-6/12 my-5 rounded" onSubmit={this.handleForm}>
+				<SideNav />
+				<section className="section-main">
+					<form className="form" onSubmit={this.handleForm}>
 	            		<div className="p-4">
-	            			<h1 className="text-lg border-b border-gray-500">Edit your details</h1>
+	            			<h1 className="hdln_1">Edit your details</h1>
 	            			<Error error={this.state.errors['result'] ? this.state.errors['result'] : null} />
 	            			<div className="mt-4">
 	            				<label>Name</label>
